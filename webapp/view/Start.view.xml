@@ -1,0 +1,29 @@
+<mvc:View controllerName="de.varelmann.zgeoget1.controller.Start" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:gmaps="openui5.googlemaps">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<l:VerticalLayout class="sapUiContentPadding" width="50%">
+						<l:content>
+							<Label text="{i18n>Time}" labelFor="Time" design="Bold"/>
+							<Input id="Time" editable="false" value="{path: 'geodata>/Time', formatter: 'de.varelmann.zgeoget1.controller.formatter.f_timestamp' }"/>
+							<Label text="{i18n>Timestamp}" labelFor="Timestamp" design="Bold"/>
+							<Input id="Timestamp" value="{geodata>/Timestamp}" editable="false"/>
+							<Label text="{i18n>Latitude}" labelFor="Latitude" design="Bold"/>
+							<Input id="Latitude" value="{geodata>/Latitude}" editable="false"/>
+							<Label text="{i18n>Longitude}" labelFor="Longitude" design="Bold"/>
+							<Input id="Longitude" value="{geodata>/Longitude}" editable="false"/>
+							<FlexBox height="100px" alignItems="Start" justifyContent="Start">
+								<items>
+									<Button type="Accept" text="{i18n>ButtonGet}" press="onGetGeo"/>
+									<Link text="{i18n>Link}" target="_blank" href="{geodata>/Link}" enabled="{geodata>/Link_enabled}" class="sapUiSmallMargin"/>
+								</items>
+							</FlexBox>
+						</l:content>
+					</l:VerticalLayout>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
